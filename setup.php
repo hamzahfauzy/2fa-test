@@ -4,6 +4,8 @@ require 'vendor/autoload.php';
 
 $tfa = new RobThree\Auth\TwoFactorAuth(new RobThree\Auth\Providers\Qr\QRServerProvider());
 
+$users = json_decode(file_get_contents('users.json'), true);
+
 $email = 'user@example.com';
 $secret = $tfa->createSecret();
 $qrCode = $tfa->getQRCodeImageAsDataUri($email, $secret);
