@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-$tfa = new RobThree\Auth\TwoFactorAuth(new RobThree\Auth\Providers\Qr\QRServerProvider());
+$tfa = new RobThree\Auth\TwoFactorAuth(new RobThree\Auth\Providers\Qr\QRServerProvider(), "2FA Testing");
 
 $users = json_decode(file_get_contents('users.json'), true);
 
