@@ -17,11 +17,6 @@ $tfa = new RobThree\Auth\TwoFactorAuth(new RobThree\Auth\Providers\Qr\QRServerPr
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $code = $_POST['code'];
 
-    var_dump($secret);
-    var_dump($code);
-    var_dump($tfa->verifyCode($secret, $code));
-    die;
-
     if ($tfa->verifyCode($secret, $code)) {
         $_SESSION['logged_in'] = true;
         header('Location: dashboard.php');
