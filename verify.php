@@ -12,7 +12,7 @@ $email = $_SESSION['email'];
 $users = json_decode(file_get_contents('users.json'), true);
 $secret = $users[$email]['secret'];
 
-$tfa = new TwoFactorAuth('ContohApp');
+$tfa = new RobThree\Auth\TwoFactorAuth(new RobThree\Auth\Providers\Qr\QRServerProvider());
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $code = $_POST['code'];
